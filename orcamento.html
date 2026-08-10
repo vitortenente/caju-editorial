@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Orçamento | Caju Editorial</title>
+<meta name="description" content="Solicite um orçamento de revisão, preparação de texto, leitura crítica ou acompanhamento editorial.">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <nav class="nav">
+    <a href="index.html" class="logo">Caju <em>Editorial</em></a>
+    <ul class="nav-links">
+      <li><a href="index.html">Início</a></li>
+      <li><a href="servicos.html">Serviços</a></li>
+      <li><a href="sobre.html">Sobre</a></li>
+      <li><a href="portfolio.html">Portfólio</a></li>
+    </ul>
+    <a href="orcamento.html" class="nav-cta">Orçamento</a>
+  </nav>
+</header>
+
+<section class="hero hero--small">
+  <div class="mark mark--amarelo" style="width:44px; top:56px; right:14%;">
+    <svg viewBox="0 0 60 60" fill="none" stroke="currentColor" stroke-width="5" stroke-linecap="round"><path d="M15 15 L45 45 M45 15 L15 45"/></svg>
+  </div>
+  <div class="wrap">
+    <div class="hero-inner">
+      <span class="eyebrow">Orçamento</span>
+      <h1>Vamos falar sobre o seu projeto?</h1>
+      <p class="lead">Preencha o formulário com o máximo de detalhes possível. Respondemos em até 2 dias úteis com uma proposta de escopo, prazo e valor.</p>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:56px;">
+  <div class="wrap">
+    <div class="form-layout">
+
+      <!--
+        Este formulário está configurado para o Formspree (https://formspree.io).
+        Basta criar uma conta gratuita, gerar um formulário e substituir
+        "SEU_FORM_ID" abaixo pelo ID fornecido. Alternativas: Web3Forms,
+        Netlify Forms ou um backend próprio — todas usam a mesma estrutura de campos.
+      -->
+      <form class="form-card" action="https://formspree.io/f/SEU_FORM_ID" method="POST">
+
+        <div class="field-row">
+          <div class="field">
+            <label for="nome">Nome completo *</label>
+            <input type="text" id="nome" name="nome" required>
+          </div>
+          <div class="field">
+            <label for="email">E-mail *</label>
+            <input type="email" id="email" name="email" required>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="telefone">Telefone / WhatsApp</label>
+            <input type="tel" id="telefone" name="telefone" placeholder="(00) 00000-0000">
+          </div>
+          <div class="field">
+            <label for="tipo">Tipo de projeto *</label>
+            <select id="tipo" name="tipo_projeto" required>
+              <option value="">Selecione</option>
+              <option value="romance">Romance / novela</option>
+              <option value="contos">Conto / coletânea</option>
+              <option value="poesia">Poesia</option>
+              <option value="nao-ficcao">Não-ficção</option>
+              <option value="academico">TCC / dissertação / tese</option>
+              <option value="infantil">Infantil / juvenil</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label>Serviço de interesse *</label>
+          <div class="checkbox-grid">
+            <label class="checkbox-item"><input type="checkbox" name="servico" value="revisao"> Revisão de texto</label>
+            <label class="checkbox-item"><input type="checkbox" name="servico" value="preparacao"> Preparação de texto</label>
+            <label class="checkbox-item"><input type="checkbox" name="servico" value="leitura-critica"> Leitura crítica</label>
+            <label class="checkbox-item"><input type="checkbox" name="servico" value="mentoria"> Mentoria de escrita</label>
+            <label class="checkbox-item"><input type="checkbox" name="servico" value="diagramacao"> Diagramação e editoração</label>
+            <label class="checkbox-item"><input type="checkbox" name="servico" value="completo"> Acompanhamento completo</label>
+          </div>
+        </div>
+
+        <div class="field-row">
+          <div class="field">
+            <label for="paginas">Número aproximado de páginas</label>
+            <input type="text" id="paginas" name="numero_paginas" placeholder="Ex: 220">
+          </div>
+          <div class="field">
+            <label for="prazo">Prazo desejado</label>
+            <select id="prazo" name="prazo" >
+              <option value="">Selecione</option>
+              <option value="urgente">Até 2 semanas</option>
+              <option value="1-mes">Até 1 mês</option>
+              <option value="2-3-meses">2 a 3 meses</option>
+              <option value="flexivel">Sem pressa / flexível</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="field">
+          <label for="mensagem">Conte sobre o seu projeto *</label>
+          <textarea id="mensagem" name="mensagem" required placeholder="Gênero, sinopse breve, em que estágio está o texto, e qualquer outra informação relevante."></textarea>
+        </div>
+
+        <p class="required-note">* campos obrigatórios</p>
+
+        <button type="submit" class="btn btn--primary btn--block">Enviar solicitação</button>
+      </form>
+
+      <aside class="side-info">
+        <div class="side-card">
+          <h4>Prefere falar direto?</h4>
+          <p>Se preferir, envie os detalhes do seu projeto pelo WhatsApp e retornamos por lá.</p>
+          <a class="whatsapp-btn" href="https://wa.me/5511999999999?text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20suporte%20editorial." target="_blank" rel="noopener">Falar no WhatsApp</a>
+        </div>
+        <div class="side-card">
+          <h4>Outros canais</h4>
+          <p>contato@caju.com.br</p>
+          <p>(11) 99999-9999</p>
+          <p>Respondemos em até 2 dias úteis.</p>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</section>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-logo">Caju</div>
+        <p>Suporte editorial para autores, autoras e pequenas editoras. Revisão, preparação e leitura crítica com cuidado artesanal.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Instagram">IG</a>
+          <a href="#" aria-label="LinkedIn">IN</a>
+        </div>
+      </div>
+      <div>
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="index.html">Início</a></li>
+          <li><a href="servicos.html">Serviços</a></li>
+          <li><a href="sobre.html">Sobre</a></li>
+          <li><a href="portfolio.html">Portfólio</a></li>
+          <li><a href="orcamento.html">Orçamento</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contato</h4>
+        <ul>
+          <li><a href="mailto:contato@caju.com.br">contato@caju.com.br</a></li>
+          <li><a href="tel:+5511999999999">(11) 99999-9999</a></li>
+          <li>São Paulo, SP</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© 2026 Caju Editorial. Todos os direitos reservados.</span>
+      <span>CNPJ 00.000.000/0001-00</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
