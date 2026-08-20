@@ -609,6 +609,165 @@ section {
   color: var(--laranja);
 }
 
+/* ============ DEPOIMENTOS CAROUSEL ============ */
+.carousel {
+  position: relative;
+  margin-top: 8px;
+}
+
+.carousel-track {
+  display: flex;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+}
+
+.carousel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.testimonial {
+  flex: 0 0 100%;
+  scroll-snap-align: center;
+  margin: 0;
+  padding: 8px 8px 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.testimonial-inner {
+  background: var(--creme-2);
+  border: 1.5px solid rgba(84, 47, 34, .16);
+  border-radius: var(--radius);
+  padding: 52px 48px 40px;
+  max-width: 760px;
+  width: 100%;
+  position: relative;
+}
+
+.testimonial-inner::before {
+  content: "\201C";
+  font-family: var(--display);
+  font-size: 96px;
+  line-height: 1;
+  color: var(--amarelo);
+  position: absolute;
+  top: 20px;
+  left: 30px;
+  opacity: .5;
+  pointer-events: none;
+}
+
+.testimonial p {
+  font-family: var(--display);
+  font-style: italic;
+  font-size: clamp(17px, 2.1vw, 22px);
+  line-height: 1.5;
+  color: var(--verde);
+  position: relative;
+  margin: 0 0 22px;
+}
+
+.testimonial cite {
+  font-family: var(--mono);
+  font-style: normal;
+  font-size: 12.5px;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: var(--laranja);
+}
+
+.carousel-btn {
+  position: absolute;
+  top: calc(50% - 20px);
+  transform: translateY(-50%);
+  z-index: 3;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1.5px solid var(--verde);
+  background: var(--creme);
+  color: var(--verde);
+  font-family: var(--body);
+  font-size: 26px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+
+.carousel-btn:hover {
+  background: var(--verde);
+  color: var(--creme);
+}
+
+.carousel-btn:focus-visible {
+  outline: 3px solid var(--laranja);
+  outline-offset: 3px;
+}
+
+.carousel-btn--prev {
+  left: -8px;
+}
+
+.carousel-btn--next {
+  right: -8px;
+}
+
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.carousel-dot {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  background: rgba(84, 47, 34, .25);
+  transition: background .2s ease, transform .2s ease;
+}
+
+.carousel-dot.is-active {
+  background: var(--laranja);
+  transform: scale(1.35);
+}
+
+@media (max-width: 680px) {
+  .carousel-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    top: calc(50% - 16px);
+  }
+
+  .carousel-btn--prev {
+    left: -6px;
+  }
+
+  .carousel-btn--next {
+    right: -6px;
+  }
+
+  .testimonial-inner {
+    padding: 44px 26px 32px;
+  }
+
+  .testimonial-inner::before {
+    font-size: 72px;
+    top: 14px;
+    left: 18px;
+  }
+}
+
 /* ============ FAQ ============ */
 @supports (interpolate-size: allow-keywords) {
   :root {
@@ -858,6 +1017,64 @@ section {
   color: var(--marrom);
 }
 
+/* ============ EQUIPE ============ */
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+  justify-content: center;
+  gap: 40px 32px;
+  padding: 8px 0 16px;
+}
+
+.team-card {
+  text-align: center;
+}
+
+.team-photo {
+  width: 200px;
+  height: 200px;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+  overflow: hidden;
+  position: relative;
+  background: var(--verde);
+  color: var(--creme);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* iniciais aparecem quando ainda não há foto */
+.team-photo::before {
+  content: attr(data-initials);
+  font-family: var(--display);
+  font-size: 52px;
+  font-weight: 600;
+  letter-spacing: .02em;
+}
+
+.team-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.team-card h3 {
+  font-size: 24px;
+  margin-bottom: 6px;
+}
+
+.team-role {
+  font-family: var(--mono);
+  font-size: 12.5px;
+  text-transform: uppercase;
+  letter-spacing: .08em;
+  color: var(--laranja);
+  display: block;
+}
+
 /* ============ PORTFOLIO ============ */
 .book-card {
   background: var(--creme);
@@ -968,6 +1185,7 @@ section {
 .field input[type="text"],
 .field input[type="email"],
 .field input[type="tel"],
+.field input[type="url"],
 .field select,
 .field textarea {
   width: 100%;
@@ -992,10 +1210,24 @@ section {
   border-color: var(--laranja);
 }
 
+.field-hint {
+  display: block;
+  font-size: 12.5px;
+  color: rgba(84, 47, 34, .6);
+  margin-top: 8px;
+}
+
 .field-row {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 20px;
+  /* mantém os inputs na mesma linha de base quando um label ocupa duas linhas */
+  align-items: end;
+}
+
+/* se sobrar um único campo na linha, ele ocupa a largura toda */
+.field-row > .field:only-child {
+  grid-column: 1 / -1;
 }
 
 .checkbox-grid {
@@ -1098,6 +1330,15 @@ section {
     width: 100px;
     height: 100px;
     font-size: 32px;
+  }
+
+  .team-photo {
+    width: 160px;
+    height: 160px;
+  }
+
+  .team-photo::before {
+    font-size: 42px;
   }
 }
 
