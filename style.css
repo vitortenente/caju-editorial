@@ -1076,70 +1076,73 @@ section {
 }
 
 /* ============ PORTFOLIO ============ */
+.grid--portfolio {
+  grid-template-columns: repeat(4, 1fr);
+  gap: 26px 22px;
+}
+
 .book-card {
   background: var(--creme);
   border: 1.5px solid rgba(84, 47, 34, .16);
   padding: 0;
   overflow: hidden;
   border-radius: var(--radius);
-  transition: transform .2s ease, border-color .2s ease;
+  display: flex;
+  flex-direction: column;
+  transition: transform .2s ease, border-color .2s ease, box-shadow .2s ease;
 }
 
 .book-card:hover {
   transform: translateY(-4px);
   border-color: var(--laranja);
+  box-shadow: 0 12px 28px rgba(84, 47, 34, .14);
 }
 
-.book-spine {
-  height: 130px;
-  display: flex;
-  align-items: flex-end;
-  padding: 18px 22px;
-  font-family: var(--mono);
-  font-size: 12px;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  color: var(--creme);
+.book-cover {
+  aspect-ratio: 69 / 100;
+  background: rgba(84, 47, 34, .10);
+  overflow: hidden;
 }
 
-.book-card:nth-child(6n+1) .book-spine {
-  background: var(--verde);
+.book-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  transition: transform .35s ease;
 }
 
-.book-card:nth-child(6n+2) .book-spine {
-  background: var(--laranja);
-}
-
-.book-card:nth-child(6n+3) .book-spine {
-  background: var(--marrom);
-}
-
-.book-card:nth-child(6n+4) .book-spine {
-  background: var(--verde-2);
-}
-
-.book-card:nth-child(6n+5) .book-spine {
-  background: var(--amarelo);
-  color: var(--verde);
-}
-
-.book-card:nth-child(6n+6) .book-spine {
-  background: var(--marrom);
+.book-card:hover .book-cover img {
+  transform: scale(1.04);
 }
 
 .book-body {
-  padding: 22px 24px 26px;
+  padding: 18px 20px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
 }
 
 .book-body h3 {
-  font-size: 18px;
-  margin-bottom: 8px;
+  font-size: 17px;
+  line-height: 1.3;
+  margin-bottom: 0;
 }
 
 .book-body p {
   font-size: 14px;
   color: rgba(84, 47, 34, .78);
   margin-bottom: 0;
+}
+
+.book-genre {
+  font-family: var(--mono);
+  font-size: 11.5px;
+  text-transform: uppercase;
+  letter-spacing: .07em;
+  color: var(--laranja);
+  margin-top: auto;
 }
 
 .portfolio-note {
@@ -1309,6 +1312,10 @@ section {
     grid-template-columns: 1fr 1fr;
   }
 
+  .grid--portfolio {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
   .footer-grid {
     grid-template-columns: 1fr 1fr;
   }
@@ -1350,6 +1357,19 @@ section {
   .grid--3,
   .grid--2 {
     grid-template-columns: 1fr;
+  }
+
+  .grid--portfolio {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px 16px;
+  }
+
+  .book-body {
+    padding: 14px 14px 18px;
+  }
+
+  .book-body h3 {
+    font-size: 15px;
   }
 
   .footer-grid {
