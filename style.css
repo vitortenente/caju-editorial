@@ -920,11 +920,10 @@ section {
 }
 
 .footer-logo {
-  font-family: var(--display);
-  font-size: 24px;
-  font-weight: 700;
-  color: var(--creme);
-  margin-bottom: 14px;
+  display: block;
+  width: 172px;
+  height: auto;
+  margin-bottom: 18px;
 }
 
 .social-row {
@@ -934,20 +933,22 @@ section {
 }
 
 .social-row a {
-  width: 34px;
-  height: 34px;
-  border: 1px solid rgba(249, 241, 222, .35);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: var(--mono);
-  font-size: 12px;
+  width: 30px;
+  height: 30px;
+  display: block;
+  border-radius: 8px;
+  transition: transform .2s ease, opacity .2s ease;
 }
 
 .social-row a:hover {
-  border-color: var(--amarelo);
-  color: var(--amarelo);
+  transform: translateY(-2px);
+  opacity: .85;
+}
+
+.social-row img {
+  width: 100%;
+  height: 100%;
+  display: block;
 }
 
 /* ============ SOBRE — SÓCIAS ============ */
@@ -968,6 +969,7 @@ section {
   width: 160px;
   height: 160px;
   border-radius: 50%;
+  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -984,6 +986,18 @@ section {
 
 .avatar--2 {
   background: var(--laranja);
+}
+
+.avatar img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 28%;
+  border-radius: 50%;
+  transform: scale(var(--zoom, 1));
+  transform-origin: var(--focus, 50% 30%);
 }
 
 .partner-role {
@@ -1352,6 +1366,10 @@ section {
 @media (max-width: 680px) {
   .nav-links {
     display: none;
+  }
+
+  .footer-logo {
+    width: 148px;
   }
 
   .grid--3,

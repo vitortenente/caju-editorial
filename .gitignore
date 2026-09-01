@@ -1,0 +1,12 @@
+# Material de apoio (PDFs, prints de depoimentos, originais de imagens)
+apoio/
+
+# Arquivos gerados pelo sistema operacional
+Thumbs.db
+ehthumbs.db
+desktop.ini
+.DS_Store
+
+# Arquivos temporários de editores
+*.swp
+*~
