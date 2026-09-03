@@ -276,6 +276,37 @@ p {
 
 .nav-toggle {
   display: none;
+  width: 44px;
+  height: 44px;
+  margin-right: -10px;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+  background: none;
+  border: 0;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--verde);
+  transition: transform .2s ease, opacity .2s ease;
+}
+
+.nav-toggle.is-open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.is-open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.is-open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ============ HERO (dark ink band) ============ */
@@ -742,19 +773,31 @@ section {
 }
 
 @media (max-width: 680px) {
+  /* no estreito as setas saem de cima do depoimento e vao para a linha dos pontos */
   .carousel-btn {
     width: 40px;
     height: 40px;
     font-size: 22px;
-    top: calc(50% - 16px);
+    top: auto;
+    bottom: 0;
+    transform: none;
   }
 
   .carousel-btn--prev {
-    left: -6px;
+    left: auto;
+    right: 48px;
   }
 
   .carousel-btn--next {
-    right: -6px;
+    right: 0;
+  }
+
+  .carousel-dots {
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    padding-right: 100px;
+    min-height: 40px;
+    align-items: center;
   }
 
   .testimonial-inner {
@@ -1073,6 +1116,9 @@ section {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: var(--pos, 50% 30%);
+  transform: scale(var(--zoom, 1));
+  transform-origin: var(--focus, 50% 30%);
 }
 
 .team-card h3 {
@@ -1363,13 +1409,79 @@ section {
   }
 }
 
-@media (max-width: 680px) {
-  .nav-links {
-    display: none;
+/* o menu horizontal para de caber antes dos demais blocos: breakpoint proprio */
+@media (max-width: 960px) {
+  /* menu vira painel suspenso, aberto pelo botão hambúrguer */
+  .nav {
+    padding: 14px 20px;
+    gap: 10px;
   }
 
+  /* nome em duas linhas, propositalmente, em vez de quebrar torto */
+  .logo {
+    font-size: 18px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0;
+    line-height: 1.06;
+  }
+
+  .logo em {
+    font-size: 12px;
+    letter-spacing: .01em;
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-cta {
+    font-size: 12px;
+    padding: 10px 14px;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    background: var(--creme);
+    border-bottom: 1px solid rgba(84, 47, 34, .14);
+    padding: 4px 20px 12px;
+    box-shadow: 0 12px 20px -14px rgba(84, 47, 34, .5);
+  }
+
+  .nav-links.is-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    display: block;
+    padding: 14px 0;
+    font-size: 14px;
+    border-bottom: 1px solid rgba(84, 47, 34, .1);
+  }
+
+  .nav-links li:last-child a {
+    border-bottom: 0;
+  }
+
+  .nav-links a::after {
+    display: none;
+  }
+}
+
+@media (max-width: 680px) {
   .footer-logo {
     width: 148px;
+  }
+
+  .footer-grid ul {
+    gap: 14px;
   }
 
   .grid--3,
@@ -1425,5 +1537,42 @@ section {
 
   .hero {
     padding: 80px 0 60px;
+  }
+
+  .wrap {
+    padding: 0 20px;
+  }
+
+  /* enfeites decorativos saem de cena: no estreito eles cruzam o texto */
+  .mark {
+    display: none;
+  }
+
+  .hero-actions {
+    gap: 12px;
+  }
+
+  .hero-actions .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .form-card {
+    padding: 26px 20px;
+  }
+
+  /* 16px evita o zoom automático do iOS ao focar um campo */
+  .field input[type="text"],
+  .field input[type="email"],
+  .field input[type="tel"],
+  .field input[type="url"],
+  .field select,
+  .field textarea {
+    font-size: 16px;
+  }
+
+  .checkbox-item {
+    gap: 12px;
+    padding: 4px 0;
   }
 }
